@@ -23,6 +23,6 @@ terraform {
   required_version = ">= 1.12"
 
   provider_meta "google" {
-    module_name = "bahlsen/projectcfg/v1.0.0"
+    module_name = "bahlsen/projectcfg/v0.1.0"
   }
 }

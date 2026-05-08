@@ -38,7 +38,7 @@ To find out how to bootstrap a project, check out the dedicated
 ```hcl
 module "projectcfg" {
   source  = "bahlsengroup/projectfactory/google"
-  version = "~> 0.1"
+  version = "~> 1.0"
 
   project_id = "some-example-project"
 }

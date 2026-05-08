@@ -1,4 +1,4 @@
-# Copyright 2025 Bahlsen GmbH & Co. KG
+# Copyright 2026 Bahlsen GmbH & Co. KG
 # Copyright 2025 METRO Digital GmbH
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,7 +17,7 @@ terraform {
   required_providers {
     google = {
       source  = "hashicorp/google"
-      version = "~> 6.0"
+      version = ">= 6.0, < 8.0"
     }
   }
   required_version = ">= 1.12"

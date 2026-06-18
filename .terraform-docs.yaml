@@ -28,3 +28,4 @@ settings:
   indent: 2
   anchor: false
   escape: false
+  hide-empty: true

@@ -29,6 +29,12 @@ repos:
       - id: trailing-whitespace
       - id: mixed-line-ending
         args: ['--fix', 'lf']
+      - id: pretty-format-json
+        args: ['--autofix']
+  - repo: https://github.com/adrienverge/yamllint
+    rev: cba56bcde1fdd01c1deb3f945e69764c291a6530  # frozen: v1.38.0
+    hooks:
+      - id: yamllint
   - repo: https://github.com/antonbabenko/pre-commit-terraform
     rev: d0e12caebb2ab0ee8bf98181c8bfe9702bca103d  # frozen: v1.105.0
     hooks:
@@ -40,22 +46,31 @@ repos:
       - id: terraform_docs
         args:
           - --args=--config=.terraform-docs.yaml
-  - repo: https://github.com/adrienverge/yamllint
-    rev: cba56bcde1fdd01c1deb3f945e69764c291a6530  # frozen: v1.38.0
-    hooks:
-      - id: yamllint
+      - id: terraform_validate
+        args:
+          - --hook-config=--retry-once-with-cleanup=true
+      - id: terraform_providers_lock
+        args:
+          - --args=-platform=linux_amd64
+          - --args=-platform=linux_arm64
+          - --args=-platform=darwin_amd64
+          - --args=-platform=darwin_arm64
+          - --hook-config=--mode=regenerate-lockfile-if-some-platform-missed
+      - id: terraform_docs
+        args:
+          - --args=--config=.terraform-docs.yaml
   - repo: https://github.com/jumanjihouse/pre-commit-hooks
     rev: 38980559e3a605691d6579f96222c30778e5a69e  # frozen: 3.0.0
     hooks:
       - id: script-must-have-extension
       - id: shellcheck
       - id: shfmt
+
   - repo: https://github.com/hukkin/mdformat
     rev: 2d496dbc18e31b83a1596685347ffe0b6041daf0  # frozen: 1.0.0
     hooks:
       - id: mdformat
         # needed to support exclude in `.mdformat.toml`
-        # pre-commit runs on python 3.12 by default on MacOS and most linux distributions.
         # Install python 3.13 if pre-commit fails.
         language_version: "3.13"
         # Optionally add plugins

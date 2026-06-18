@@ -35,6 +35,12 @@ jobs:
         with:
           python-version: '3.13'
 
+      - uses: terraform-linters/setup-tflint@v6
+        name: Setup TFLint
+        with:
+          tflint_version: 'latest'
+          cache: 'true'
+
       - name: Install terraform-docs
         run: |
           curl -L "$(curl -s https://api.github.com/repos/terraform-docs/terraform-docs/releases/latest |

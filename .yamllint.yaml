@@ -13,4 +13,3 @@ rules:
     ignore: |
       .github/dependabot.yaml
       .github/workflows/*.yaml
-      .pre-commit-config.yaml

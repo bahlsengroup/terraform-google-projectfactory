@@ -17,10 +17,15 @@ terraform {
   required_providers {
     google = {
       source  = "hashicorp/google"
-      version = ">= 6.0, < 8.0"
+      version = ">= 6.0, <8.0"
+    }
+    google-beta = {
+      source  = "hashicorp/google-beta"
+      version = ">= 6.0, <8.0"
     }
   }
-  required_version = ">= 1.12"
+  required_version = ">= 1.13"
+
 
   provider_meta "google" {
     module_name = "bahlsen/projectcfg/v1.0.0"

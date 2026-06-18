@@ -48,6 +48,12 @@ jobs:
             tar -xzf terraform-docs.tgz terraform-docs && rm terraform-docs.tgz && chmod +x terraform-docs && \
             sudo mv terraform-docs /usr/bin/
 
+      - uses: terraform-linters/setup-tflint@v6
+        name: Setup TFLint
+        with:
+          tflint_version: 'latest'
+          cache: 'true'
+
       - name: Install shfmt
         run: |
           curl -L "$(curl -s https://api.github.com/repos/mvdan/sh/releases/latest |

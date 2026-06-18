@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/bahlsengroup/terraform-google-projectfactory/compare/v1.0.1...v1.0.2) (2026-06-18)
+
+
+### Bug Fixes
+
+* update providers, fix .gitignore ([3e86e93](https://github.com/bahlsengroup/terraform-google-projectfactory/commit/3e86e93f82ff4bba45901385e84d94bdf9818004))
+
 ## [1.0.1](https://github.com/bahlsengroup/terraform-google-projectfactory/compare/v1.0.0...v1.0.1) (2026-06-18)
 
 

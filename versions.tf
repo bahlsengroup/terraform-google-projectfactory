@@ -28,6 +28,6 @@ terraform {
 
 
   provider_meta "google" {
-    module_name = "bahlsen/projectcfg/v1.0.1"
+    module_name = "bahlsen/projectcfg/v1.0.2"
   }
 }

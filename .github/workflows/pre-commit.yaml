@@ -1,3 +1,4 @@
+# Copyright 2026 Bahlsen GmbH & Co. KG
 # Copyright 2024 METRO Digital GmbH
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -25,14 +26,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v3
+        uses: hashicorp/setup-terraform@v4
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: '3.13'
+
+      - uses: terraform-linters/setup-tflint@v6
+        name: Setup TFLint
+        with:
+          tflint_version: 'latest'
+          cache: 'true'
 
       - name: Install terraform-docs
         run: |
@@ -40,12 +47,7 @@ jobs:
             grep -o -E -m 1 "https://.+?-linux-amd64.tar.gz")" > terraform-docs.tgz && \
             tar -xzf terraform-docs.tgz terraform-docs && rm terraform-docs.tgz && chmod +x terraform-docs && \
             sudo mv terraform-docs /usr/bin/
-      - name: Install tflint
-        run: |
-          # tflint
-          curl -L "$(curl -s https://api.github.com/repos/terraform-linters/tflint/releases/latest |
-            grep -o -E -m 1 "https://.+?_linux_amd64.zip")" > tflint.zip && \
-            unzip tflint.zip && rm tflint.zip && sudo mv tflint /usr/bin/
+
       - name: Install shfmt
         run: |
           curl -L "$(curl -s https://api.github.com/repos/mvdan/sh/releases/latest |

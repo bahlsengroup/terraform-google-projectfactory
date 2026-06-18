@@ -5,12 +5,8 @@
 .vscode
 
 # terraform
-**/.terraform/
-**/.terraform.tfstate.lock.info
-**/terraform.tfstate
-**/terraform.tfstate.backup
-**/terraform.tfstate.*.backup
-**/errored.tfstate
+bootstrap/terraform/.terraform
+.terraform
 
 # OS generated files
 .DS_Store
@@ -20,4 +16,3 @@
 .Trashes
 ehthumbs.db
 Thumbs.db
-.terraform.lock.hcl

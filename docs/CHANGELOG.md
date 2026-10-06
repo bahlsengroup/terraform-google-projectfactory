@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+### Features
+
+* add `audit_configs` to the authoritative project IAM policy, with an empty default that preserves existing behaviour; supports Storage `DATA_WRITE` logging without enabling `DATA_READ`.
+
 ## [1.0.2](https://github.com/bahlsengroup/terraform-google-projectfactory/compare/v1.0.1...v1.0.2) (2026-06-18)
 
 

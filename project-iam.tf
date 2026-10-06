@@ -164,6 +164,21 @@ locals {
 }
 
 data "google_iam_policy" "this" {
+  dynamic "audit_config" {
+    for_each = var.audit_configs
+
+    content {
+      service = audit_config.value.service
+      dynamic "audit_log_configs" {
+        for_each = audit_config.value.audit_log_configs
+        content {
+          log_type         = audit_log_configs.value.log_type
+          exempted_members = audit_log_configs.value.exempted_members
+        }
+      }
+    }
+  }
+
   dynamic "binding" {
     for_each = local.project_iam_bindings_combined
 

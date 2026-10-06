@@ -65,6 +65,18 @@ variable "enabled_services_disable_on_destroy" {
 /* IAM                                                                                            */
 /*                                                                                                */
 /**************************************************************************************************/
+variable "audit_configs" {
+  description = "Data Access audit configurations included in the authoritative project IAM policy. The default empty list adds no audit configuration."
+  type = list(object({
+    service = string
+    audit_log_configs = list(object({
+      log_type         = string
+      exempted_members = optional(list(string), [])
+    }))
+  }))
+  default = []
+}
+
 variable "iam_policy" {
   description = <<-EOD
     IAM roles and their members.

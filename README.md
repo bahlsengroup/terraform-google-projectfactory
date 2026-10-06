@@ -68,11 +68,11 @@ related service accounts will stay in place. Those excludes are configured in
 [project-iam.tf](./project-iam.tf) - look for a local variable called
 `project_iam_non_authoritative_roles`.
 
-The `audit_configs` input includes Data Access audit logging in the same authoritative
-policy. It defaults to `[]`, adding no audit configuration and preserving the module's
-existing behaviour. Each entry names a `service` and its `audit_log_configs`; each log
-configuration has a `log_type` and optional `exempted_members` (default `[]`). For
-Storage writes only, configure:
+The `audit_configs` input includes Data Access audit logging in the same
+authoritative policy. It defaults to `[]`, adding no audit configuration and
+preserving the module's existing behaviour. Each entry names a `service` and its
+`audit_log_configs`; each log configuration has a `log_type` and optional
+`exempted_members` (default `[]`). For Storage writes only, configure:
 
 ```hcl
 audit_configs = [
@@ -86,8 +86,9 @@ audit_configs = [
 ```
 
 This does not enable `DATA_READ`. Do not manage these settings with a separate
-`google_project_iam_audit_config`, because the authoritative policy would overwrite it.
-Registry callers must wait for a module release containing this input before passing it.
+`google_project_iam_audit_config`, because the authoritative policy would
+overwrite it. Registry callers must wait for a module release containing this
+input before passing it.
 
 ## License
 

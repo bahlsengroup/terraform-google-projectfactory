@@ -34,7 +34,7 @@ Make sure that you have installed the following dependencies on your machine.
    projects IAM policy*. Your application-default credentials must also be
    valid.
 
-   ```sh
+   ```shell
    gcloud auth login --update-adc
    ```
 
@@ -44,7 +44,7 @@ Make sure that you have installed the following dependencies on your machine.
    can be found
    [here](https://github.com/bahlsengroup/terraform-google-projectfactory/releases).
 
-   ```sh
+   ```shell
    git clone https://github.com/bahlsengroup/terraform-google-projectfactory/releases terraform-projectfactory \
      --depth 1 --branch <LATEST RELEASE TAG>
 
@@ -59,7 +59,7 @@ Make sure that you have installed the following dependencies on your machine.
      Make sure to replace `<GOOGLE CLOUD PROJECT ID>` with your project ID.
    - `-g` with the groups email address used as admin group
 
-   ```sh
+   ```shell
    ./bootstrap.sh -p <GOOGLE CLOUD PROJECT ID> -g <GCI_GROUP_USED_WITHIN_THE_PROJECT>
    ```
 
@@ -73,7 +73,7 @@ Make sure that you have installed the following dependencies on your machine.
 There are other, optional parameters that can alter the behavior of the
 bootstrap script. Run the script with the `-h` flag for more information:
 
-```sh
+```shell
 ./bootstrap.sh -h
 ```
 
